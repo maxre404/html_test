@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lc41D0oAAAAAKv9w2yYiKNkouFby7Bmvbz3dLfg"></script>
+</head>
+<body>
+
+<button id="verifyButton">点击以验证</button>
+
+<script>
+document.getElementById("verifyButton").addEventListener("click", function() {
+    grecaptcha.enterprise.ready(async () => {
+        const token = await grecaptcha.enterprise.execute('6Lc41D0oAAAAAKv9w2yYiKNkouFby7Bmvbz3dLfg', {action: 'LOGIN'});
+        // 这里可以将生成的 token 发送到后端进行验证
+        // 详细步骤请参考 reCAPTCHA Enterprise 文档
+    });
+});
+</script>
+
+</body>
+</html>
