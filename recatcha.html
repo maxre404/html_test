@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<script src="https://www.google.com/recaptcha/enterprise.js?render=6Lch00goAAAAAKUoxajg3WhYpT1KLKof993sOsfi"></script>
+...
 </head>
-<body>
 
-</body>
-</html>
+<script>
+function onClick(e) {
+  e.preventDefault();
+  grecaptcha.enterprise.ready(async () => {
+    const token = await grecaptcha.enterprise.execute('6Lch00goAAAAAKUoxajg3WhYpT1KLKof993sOsfi', {action: 'LOGIN'});
+    // IMPORTANT: The 'token' that results from execute is an encrypted response sent by
+    // reCAPTCHA Enterprise to the end user's browser.
+    // This token must be validated by creating an assessment.
+    // See https://cloud.google.com/recaptcha-enterprise/docs/create-assessment
+  });
+}
+</script>
